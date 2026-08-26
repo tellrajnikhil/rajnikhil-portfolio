@@ -1,0 +1,114 @@
+.hero {
+  padding-block: clamp(3.5rem, 9vw, 7rem) clamp(3rem, 6vw, 5rem);
+}
+
+.hero__headline {
+  margin-top: 1.25rem;
+  font-size: var(--step5);
+  max-width: 16ch;
+  color: var(--ink);
+}
+
+.hero__headline em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+.hero__role {
+  margin-top: 1.75rem;
+  font-family: var(--font-mono);
+  font-size: var(--step0);
+  color: var(--ink-soft);
+  letter-spacing: 0.01em;
+}
+
+.hero__sub {
+  margin-top: 1.5rem;
+  max-width: 40rem;
+  font-size: var(--step1);
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+
+.hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2.75rem;
+}
+
+.hero__rhythm {
+  margin-top: clamp(3.5rem, 8vw, 5.5rem);
+  border-top: 1px solid var(--border);
+  padding-top: 2rem;
+}
+
+.hero__rhythm svg {
+  width: 100%;
+  height: 20px;
+  overflow: visible;
+}
+
+.rhythm-line {
+  stroke: var(--border-strong);
+  stroke-width: 1;
+  stroke-dasharray: 880;
+  stroke-dashoffset: 880;
+  animation: draw-line 1.4s ease forwards 0.2s;
+}
+
+.rhythm-dot {
+  fill: var(--paper);
+  stroke: var(--accent);
+  stroke-width: 1.5;
+  opacity: 0;
+  transform-origin: center;
+  animation: pop-dot 0.5s ease forwards;
+}
+
+@keyframes draw-line {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes pop-dot {
+  from {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.hero__rhythm-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.hero__rhythm-labels span:first-child {
+  margin-left: -0.2em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rhythm-line,
+  .rhythm-dot {
+    animation: none;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero__rhythm-labels span {
+    font-size: 0.6rem;
+  }
+}

@@ -1,0 +1,43 @@
+.approach__grid {
+  display: grid;
+  gap: 1px;
+  background: var(--night-border);
+  border: 1px solid var(--night-border);
+  grid-template-columns: 1fr;
+}
+
+.approach__card {
+  background: var(--night);
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+.approach__index {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--night-accent);
+}
+
+.approach__card h3 {
+  margin-top: 1.25rem;
+  font-size: var(--step2);
+  color: var(--night-ink);
+  text-transform: capitalize;
+}
+
+.approach__card p {
+  margin-top: 0.9rem;
+  color: var(--night-ink-soft);
+  line-height: 1.6;
+}
+
+@media (min-width: 700px) {
+  .approach__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1100px) {
+  .approach__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
