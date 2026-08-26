@@ -27,7 +27,11 @@ Output is written to `dist/`.
 - Build output directory: `dist`
 - No environment variables required.
 
-`public/_redirects` is included so client-side routes (the case-study pages) resolve correctly on Cloudflare Pages.
+This project is deployed by Cloudflare as a **Workers + Static Assets** project (the current default when connecting a Vite app), not classic Pages. `wrangler.jsonc` configures SPA fallback for that path via `not_found_handling: "single-page-application"`, so deep links like `/work/vituosica` resolve correctly.
+
+A `public/404.html` (identical to `index.html`) is also included as a fallback in case the project ever runs on classic Pages instead, which uses `404.html` for unmatched routes.
+
+Do **not** add a `public/_redirects` file with a `/* /index.html 200` rule — Cloudflare's newer platform detects that pattern as an infinite redirect loop (since `/index.html` itself matches `/*` again) and will fail the build.
 
 ## Editing content
 
