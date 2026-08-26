@@ -20,9 +20,8 @@
   color: var(--night-ink);
 }
 
-.section--dark .eyebrow {
-  color: var(--night-accent);
-}
+.section--dark .eyebrow { color: var(--night-accent); }
+.section--dark .section-head h2 { max-width: 20ch; }
 
 .btn {
   display: inline-flex;

@@ -24,8 +24,8 @@ export default function Summary() {
 
         <div className="summary__body">
           <p>
-            Nikhil leads complex technology programmes end to end — from framing the business problem through
-            to governed, measurable delivery. He works across engineering, product and executive stakeholders
+            I lead complex technology programmes end to end — from framing the business problem through
+            to governed, measurable delivery. I work across engineering, product and executive stakeholders
             to keep AI, data and digital transformation initiatives moving with clarity, discipline and
             accountability.
           </p>

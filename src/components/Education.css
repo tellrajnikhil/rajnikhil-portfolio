@@ -63,3 +63,20 @@
     padding-left: 0;
   }
 }
+
+.education__certification {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  max-width: 42rem;
+}
+.education__certification .eyebrow { margin-bottom: 0.8rem; }
+.education__certification h3 {
+  font-size: var(--step2);
+  color: var(--ink);
+}
+.education__certification p:last-child {
+  margin-top: 0.5rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}

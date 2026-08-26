@@ -16,9 +16,10 @@ export default function Education() {
             <p className="education__degree">Bachelor&rsquo;s Degree, Computer Science Engineering</p>
           </div>
 
-          <div className="education__item education__item--placeholder">
-            <p className="education__label">Certifications</p>
-            <p className="education__placeholder-text">Certifications to be added.</p>
+          <div className="education__certification">
+            <p className="eyebrow">Certification</p>
+            <h3>Project Management Professional Certification</h3>
+            <p>Xebia Academy, GlobalLogic Collaboration &amp; LinkedIn Learning</p>
           </div>
         </div>
       </div>

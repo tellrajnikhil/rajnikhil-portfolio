@@ -1,5 +1,13 @@
+import { Link } from "react-router-dom";
 import { experience } from "../data/content";
 import "./Experience.css";
+
+const globalLogicProjects = [
+  ["01", "Hitachi LSH — Lumada Solution", "Enterprise service portal", "hitachi-lsh"],
+  ["02", "Expedia Loyalty Experience", "Customer experience & loyalty", "expedia-loyalty-experience"],
+  ["03", "Ford Credit", "Mobile financial experience", "ford-credit"],
+  ["04", "TTC Touring", "Travel shopping & cart modernisation", "ttc-touring"],
+] as const;
 
 export default function Experience() {
   return (
@@ -20,10 +28,26 @@ export default function Experience() {
               <div className="experience__detail">
                 <h3>{role.title}</h3>
                 <ul>
-                  {role.points.map((pt) => (
-                    <li key={pt}>{pt}</li>
-                  ))}
+                  {role.points.map((pt) => <li key={pt}>{pt}</li>)}
                 </ul>
+
+                {role.org === "Hitachi GlobalLogic" && (
+                  <div className="experience__projects">
+                    <div className="experience__projects-head">
+                      <span>Selected client programmes</span>
+                      <span>04 projects</span>
+                    </div>
+                    <div className="experience__project-grid">
+                      {globalLogicProjects.map(([index, title, label, slug]) => (
+                        <Link to={`/work/${slug}`} className="experience__project" key={slug}>
+                          <span>{index}</span>
+                          <div><strong>{title}</strong><small>{label}</small></div>
+                          <b>↗</b>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             </li>
           ))}

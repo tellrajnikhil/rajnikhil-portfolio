@@ -21,11 +21,6 @@ export default function Contact() {
             Connect on LinkedIn
           </a>
         </div>
-
-        <p className="contact__editable-note">
-          Replace <code>{contactInfo.email}</code> and <code>{contactInfo.linkedin}</code> in{" "}
-          <code>src/data/content.ts</code> with your real details.
-        </p>
       </div>
     </section>
   );
