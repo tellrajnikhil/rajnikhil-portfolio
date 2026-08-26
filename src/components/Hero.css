@@ -1,12 +1,23 @@
 .hero {
-  padding-block: clamp(3.5rem, 9vw, 7rem) clamp(3rem, 6vw, 5rem);
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(4.5rem, 10vw, 8rem) clamp(4rem, 7vw, 6rem);
+  background:
+    radial-gradient(circle at 88% 12%, rgba(49, 88, 212, 0.10), transparent 24rem),
+    linear-gradient(180deg, rgba(255,255,255,0.35), transparent 65%);
+}
+
+.hero__inner {
+  position: relative;
 }
 
 .hero__headline {
-  margin-top: 1.25rem;
-  font-size: var(--step5);
-  max-width: 16ch;
+  margin-top: 1.35rem;
+  font-size: clamp(3.35rem, 6.5vw, 6.9rem);
+  max-width: 12ch;
   color: var(--ink);
+  letter-spacing: -0.055em;
+  line-height: 0.98;
 }
 
 .hero__headline em {
@@ -15,37 +26,39 @@
 }
 
 .hero__role {
-  margin-top: 1.75rem;
+  margin-top: 2rem;
   font-family: var(--font-mono);
-  font-size: var(--step0);
-  color: var(--ink-soft);
-  letter-spacing: 0.01em;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .hero__sub {
   margin-top: 1.5rem;
-  max-width: 40rem;
-  font-size: var(--step1);
+  max-width: 43rem;
+  font-size: clamp(1.05rem, 1rem + 0.25vw, 1.25rem);
   color: var(--ink-soft);
-  line-height: 1.55;
+  line-height: 1.7;
 }
 
 .hero__cta {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 2.75rem;
+  gap: 0.8rem;
+  margin-top: 2.5rem;
 }
 
 .hero__rhythm {
-  margin-top: clamp(3.5rem, 8vw, 5.5rem);
+  margin-top: clamp(4rem, 9vw, 7rem);
   border-top: 1px solid var(--border);
   padding-top: 2rem;
 }
 
 .hero__rhythm svg {
   width: 100%;
-  height: 20px;
+  height: 28px;
   overflow: visible;
 }
 
@@ -60,47 +73,37 @@
 .rhythm-dot {
   fill: var(--paper);
   stroke: var(--accent);
-  stroke-width: 1.5;
+  stroke-width: 2;
   opacity: 0;
   transform-origin: center;
   animation: pop-dot 0.5s ease forwards;
 }
 
 @keyframes draw-line {
-  to {
-    stroke-dashoffset: 0;
-  }
+  to { stroke-dashoffset: 0; }
 }
 
 @keyframes pop-dot {
-  from {
-    opacity: 0;
-    transform: scale(0.4);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+  from { opacity: 0; transform: scale(0.4); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 .hero__rhythm-labels {
   display: flex;
   justify-content: space-between;
-  margin-top: 0.85rem;
+  margin-top: 0.8rem;
   font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.04em;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink-faint);
 }
 
-.hero__rhythm-labels span:first-child {
-  margin-left: -0.2em;
-}
+.hero__rhythm-labels span:first-child { margin-left: -0.2em; }
 
 @media (prefers-reduced-motion: reduce) {
-  .rhythm-line,
-  .rhythm-dot {
+  .rhythm-line, .rhythm-dot {
     animation: none;
     stroke-dashoffset: 0;
     opacity: 1;
@@ -108,7 +111,8 @@
 }
 
 @media (max-width: 600px) {
-  .hero__rhythm-labels span {
-    font-size: 0.6rem;
-  }
+  .hero { padding-top: 3.5rem; }
+  .hero__headline { font-size: clamp(3rem, 15vw, 4.5rem); }
+  .hero__role { line-height: 1.6; }
+  .hero__rhythm-labels span { font-size: 0.55rem; }
 }

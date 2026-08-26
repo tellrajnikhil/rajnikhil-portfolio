@@ -1,21 +1,21 @@
 :root {
   /* Color */
-  --paper: #f6f5f2;
+  --paper: #f4f2ed;
   --paper-raised: #ffffff;
-  --ink: #0e1420;
-  --ink-soft: #4b5563;
-  --ink-faint: #8a8f9c;
-  --accent: #2f5dff;
-  --accent-ink: #16223f;
-  --border: #dedcd5;
-  --border-strong: #c7c4ba;
+  --ink: #10131a;
+  --ink-soft: #525a67;
+  --ink-faint: #8a909b;
+  --accent: #3158d4;
+  --accent-ink: #182a61;
+  --border: #d9d7d0;
+  --border-strong: #bbb9b1;
 
-  --night: #0b0f19;
-  --night-raised: #121729;
-  --night-ink: #f4f4f2;
-  --night-ink-soft: #a8adba;
-  --night-border: #232a3d;
-  --night-accent: #6d8bff;
+  --night: #0a0d13;
+  --night-raised: #111722;
+  --night-ink: #f7f7f4;
+  --night-ink-soft: #aeb5c1;
+  --night-border: #242b38;
+  --night-accent: #8ca5ff;
 
   /* Type */
   --font-display: "Fraunces", "Iowan Old Style", serif;
@@ -32,9 +32,9 @@
   --step5: clamp(3.2rem, 2.4rem + 4vw, 5.5rem);
 
   /* Layout */
-  --container: 1200px;
+  --container: 1240px;
   --gutter: clamp(1.25rem, 3vw, 3rem);
-  --radius: 3px;
+  --radius: 10px;
 
   color-scheme: light;
 }

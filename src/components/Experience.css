@@ -1,3 +1,8 @@
+.experience {
+  background:
+    linear-gradient(180deg, var(--paper), rgba(255,255,255,0.72));
+}
+
 .experience__list {
   list-style: none;
   margin: 0;
@@ -7,44 +12,50 @@
 
 .experience__item {
   display: grid;
-  gap: 0.75rem;
-  padding: clamp(1.75rem, 3vw, 2.5rem) 0;
+  gap: 1rem;
+  padding: clamp(2rem, 4vw, 3rem) 0;
   border-bottom: 1px solid var(--border);
+  transition: padding-left 0.25s ease;
+}
+
+.experience__item:hover {
+  padding-left: 0.8rem;
 }
 
 .experience__period {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
   color: var(--accent);
   margin: 0;
 }
 
 .experience__org {
-  margin: 0.4rem 0 0;
-  font-size: 0.85rem;
+  margin: 0.5rem 0 0;
+  font-size: 0.8rem;
   color: var(--ink-faint);
 }
 
 .experience__detail h3 {
-  font-size: var(--step2);
+  font-size: clamp(1.55rem, 1.2rem + 1vw, 2.15rem);
   color: var(--ink);
+  letter-spacing: -0.03em;
 }
 
 .experience__detail ul {
-  margin: 1rem 0 0;
+  margin: 1.1rem 0 0;
   padding-left: 1.1rem;
   color: var(--ink-soft);
-  line-height: 1.65;
-  max-width: 44rem;
+  line-height: 1.7;
+  max-width: 48rem;
 }
 
-.experience__detail li + li {
-  margin-top: 0.4rem;
-}
+.experience__detail li + li { margin-top: 0.5rem; }
 
 @media (min-width: 780px) {
   .experience__item {
-    grid-template-columns: 14rem 1fr;
-    gap: 2.5rem;
+    grid-template-columns: 15rem 1fr;
+    gap: 3.5rem;
   }
 }
