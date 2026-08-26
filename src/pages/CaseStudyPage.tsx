@@ -5,21 +5,58 @@ import Footer from "../components/Footer";
 import { caseStudies } from "../data/content";
 import "./CaseStudyPage.css";
 
-const visualLabels: Record<string, string[]> = {
-  "hitachi-lsh": ["ACCESS", "SERVICE", "PORTAL"],
-  "expedia-loyalty-experience": ["LOYALTY", "BENEFITS", "EXPERIENCE"],
-  "ford-credit": ["MOBILE", "FINANCE", "CUSTOMER"],
-  "ttc-touring": ["SHOP", "CART", "BRANDS"],
-  vituosica: ["STREAM", "CONNECT", "PAY"],
-  "healthcare-workforce-platform": ["STAFF", "SHIFT", "CARE"],
-  vixo: ["LIVE", "VR", "BLOCKCHAIN"],
-  travx: ["DISCOVER", "OFFERS", "RETAIL"],
-  "pmgsy-ommas": ["ROADS", "DATA", "GOVERNANCE"],
+const visualMeta: Record<string, { labels: string[]; metrics: string[]; caption: string }> = {
+  "hitachi-lsh": {
+    labels: ["ACCESS", "SERVICE", "PORTAL"],
+    metrics: ["TOOLS 18", "REQUESTS 42", "GOVERNED"],
+    caption: "Enterprise service access and provisioning",
+  },
+  "expedia-loyalty-experience": {
+    labels: ["LOYALTY", "BENEFITS", "CX"],
+    metrics: ["MODULES 04", "QA ACTIVE", "ACCESSIBLE"],
+    caption: "Customer journey and loyalty delivery",
+  },
+  "ford-credit": {
+    labels: ["MOBILE", "PAYMENTS", "FINANCE"],
+    metrics: ["IOS", "ANDROID", "RELEASE READY"],
+    caption: "Cross-platform financial experience",
+  },
+  "ttc-touring": {
+    labels: ["SHOP", "CART", "BRANDS"],
+    metrics: ["CORE", "REUSE", "MULTI-BRAND"],
+    caption: "Reusable travel commerce architecture",
+  },
+  vituosica: {
+    labels: ["STREAM", "CONNECT", "PAY"],
+    metrics: ["RTMP", "CRM", "PAYMENTS"],
+    caption: "Live video, artist and audience workflows",
+  },
+  "healthcare-workforce-platform": {
+    labels: ["STAFF", "SHIFT", "CARE"],
+    metrics: ["WEB", "MOBILE", "REAL-TIME"],
+    caption: "Workforce coordination across web and mobile",
+  },
+  vixo: {
+    labels: ["LIVE", "VR", "BLOCKCHAIN"],
+    metrics: ["360°", "AR", "WALLET"],
+    caption: "Immersive live-performance architecture",
+  },
+  travx: {
+    labels: ["DISCOVER", "OFFERS", "RETAIL"],
+    metrics: ["WEB", "MOBILE", "DISCOVERY"],
+    caption: "Mobile-oriented offer discovery",
+  },
+  "pmgsy-ommas": {
+    labels: ["ROADS", "DATA", "GOVERNANCE"],
+    metrics: ["SQL", "SSRS", "PFMS"],
+    caption: "Public-sector reporting and programme delivery",
+  },
 };
 
 export default function CaseStudyPage() {
   const { slug } = useParams();
   const study = slug ? caseStudies[slug] : undefined;
+  const meta = slug ? visualMeta[slug] : undefined;
 
   useEffect(() => {
     if (study) document.title = `${study.org} — ${study.title} | Nikhil Raj`;
@@ -27,7 +64,7 @@ export default function CaseStudyPage() {
 
   if (!study) return <Navigate to="/" replace />;
 
-  const labels = visualLabels[study.slug] ?? ["DISCOVER", "DELIVER", "OUTCOME"];
+  const visuals = meta ?? { labels: ["PROJECT", "DELIVERY", "OUTCOME"], metrics: ["PLAN", "BUILD", "SHIP"], caption: "Project delivery snapshot" };
 
   return (
     <>
@@ -44,13 +81,29 @@ export default function CaseStudyPage() {
               </div>
             </div>
             <div className="case__visual" aria-hidden="true">
-              <div className="case__visual-lines" />
-              {labels.map((label, i) => (
-                <div className={`case__visual-node case__visual-node--${i+1}`} key={label}>
-                  <small>0{i+1}</small><strong>{label}</strong>
+              <div className="case__visual-grid" />
+              <div className="case__visual-screen">
+                <div className="case__visual-toolbar"><span>PROJECT SNAPSHOT</span><i /></div>
+                <div className="case__visual-main">
+                  <div className="case__visual-sidebar">
+                    {visuals.labels.map((label, i) => <span key={label}><b>0{i+1}</b>{label}</span>)}
+                  </div>
+                  <div className="case__visual-canvas">
+                    <div className="case__visual-diagram">
+                      <span className="case__dot case__dot--a" />
+                      <span className="case__dot case__dot--b" />
+                      <span className="case__dot case__dot--c" />
+                      <div className="case__line case__line--a" />
+                      <div className="case__line case__line--b" />
+                      <div className="case__line case__line--c" />
+                    </div>
+                    <div className="case__visual-metrics">
+                      {visuals.metrics.map(m => <span key={m}>{m}</span>)}
+                    </div>
+                  </div>
                 </div>
-              ))}
-              <svg viewBox="0 0 500 300"><path d="M40 245 H150 V185 H250 V125 H350 V70 H460" /></svg>
+                <div className="case__visual-caption">{visuals.caption}</div>
+              </div>
             </div>
           </div>
         </header>
@@ -86,11 +139,27 @@ export default function CaseStudyPage() {
           </section>
 
           <section className="case__gallery">
-            <div><p className="case__kicker">Project visual</p><h2>A visual snapshot of the problem, platform and delivery journey.</h2></div>
+            <div>
+              <p className="case__kicker">Project visuals</p>
+              <h2>Architecture, workflows and delivery signals — presented as a project snapshot.</h2>
+              <p className="case__gallery-note">
+                The original portfolio contains the historical project gallery. The visual system here is a
+                redesigned presentation of the same project themes rather than a generic stock illustration.
+              </p>
+              <a className="case__source" href="https://tellrajnikhil.wixsite.com/new-animation/projects" target="_blank" rel="noreferrer">
+                View original project portfolio ↗
+              </a>
+            </div>
             <div className="case__gallery-grid">
-              {labels.map((label, i) => (
+              {visuals.labels.map((label, i) => (
                 <div className={`case__gallery-card case__gallery-card--${i+1}`} key={label}>
-                  <span>0{i+1}</span><strong>{label}</strong><small>{study.domain}</small>
+                  <div className="case__gallery-card-ui"><span>0{i+1}</span><span>LIVE VIEW</span></div>
+                  <div className="case__gallery-card-art">
+                    <span /><span /><span />
+                    <i /><b />
+                  </div>
+                  <strong>{label}</strong>
+                  <small>{visuals.caption}</small>
                 </div>
               ))}
             </div>

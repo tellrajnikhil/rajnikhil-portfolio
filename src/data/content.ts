@@ -495,6 +495,12 @@ export const aiTechnology = [
   "Governance & Human-in-the-loop",
   "Digital Transformation",
   "Data & Analytics",
+  "Jira & Confluence",
+  "Python",
+  "SQL",
+  "SSRS & Data Analytics",
+  "Figma & Wireframing",
+  "Mobile & Web Applications Delivery",
 ];
 
 export const approach = [
