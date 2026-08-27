@@ -37,6 +37,22 @@ jobs:
       - name: Build portfolio
         run: npm run build
 
+      - name: Configure SPA fallback
+        run: |
+          cat > dist/404.html <<'HTML'
+          <!DOCTYPE html>
+          <html>
+            <head>
+              <meta charset="utf-8">
+              <script>
+                sessionStorage.redirect = location.href;
+                location.replace("/");
+              </script>
+            </head>
+            <body></body>
+          </html>
+          HTML
+
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
 
