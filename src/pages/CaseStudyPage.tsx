@@ -141,11 +141,7 @@ export default function CaseStudyPage() {
           <section className="case__gallery">
             <div>
               <p className="case__kicker">Project visuals</p>
-              <h2>Architecture, workflows and delivery signals — presented as a project snapshot.</h2>
-              <p className="case__gallery-note">
-                The original portfolio contains the historical project gallery. The visual system here is a
-                redesigned presentation of the same project themes rather than a generic stock illustration.
-              </p>
+              <h2>Architecture, workflows and delivery signals.</h2>
             </div>
             <div className="case__gallery-grid">
               {visuals.labels.map((label, i) => (
