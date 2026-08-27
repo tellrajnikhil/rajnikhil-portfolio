@@ -1,0 +1,18 @@
+.experience__list { list-style:none; margin:0; padding:0; border-top:1px solid var(--border); }
+.experience__item { display:grid; gap:1rem; padding:clamp(2rem,4vw,3rem) 0; border-bottom:1px solid var(--border); }
+.experience__period { font-family:var(--font-mono); font-size:.72rem; font-weight:600; color:var(--accent); }
+.experience__org { margin-top:.45rem; font-size:.8rem; color:var(--ink-faint); }
+.experience__detail h3 { font-size:clamp(1.55rem,1.2rem + 1vw,2.2rem); letter-spacing:-.03em; }
+.experience__detail ul { margin:1rem 0 0; padding-left:1.1rem; color:var(--ink-soft); line-height:1.7; max-width:48rem; }
+.experience__detail li+li { margin-top:.45rem; }
+.experience__projects { margin-top:2rem; padding-top:1.25rem; border-top:1px solid var(--border); }
+.experience__projects-head { display:flex; justify-content:space-between; gap:1rem; font-family:var(--font-mono); font-size:.65rem; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-faint); }
+.experience__project-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:.65rem; margin-top:1rem; }
+.experience__project { display:grid; grid-template-columns:2rem 1fr auto; gap:.75rem; align-items:center; padding:1rem; border:1px solid var(--border); border-radius:12px; text-decoration:none; color:var(--ink); background:rgba(255,255,255,.32); transition:transform .2s ease, border-color .2s ease, background .2s ease; }
+.experience__project:hover { transform:translateY(-2px); border-color:var(--accent); background:var(--paper-raised); }
+.experience__project>span { font-family:var(--font-mono); font-size:.62rem; color:var(--accent); }
+.experience__project strong { display:block; font-size:.9rem; }
+.experience__project small { display:block; margin-top:.25rem; color:var(--ink-faint); font-size:.72rem; }
+.experience__project b { font-size:1rem; font-weight:400; color:var(--accent); }
+@media (min-width:780px) { .experience__item { grid-template-columns:15rem 1fr; gap:3.5rem; } }
+@media (max-width:650px) { .experience__project-grid { grid-template-columns:1fr; } }
