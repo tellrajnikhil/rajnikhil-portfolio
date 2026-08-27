@@ -146,9 +146,6 @@ export default function CaseStudyPage() {
                 The original portfolio contains the historical project gallery. The visual system here is a
                 redesigned presentation of the same project themes rather than a generic stock illustration.
               </p>
-              <a className="case__source" href="https://tellrajnikhil.wixsite.com/new-animation/projects" target="_blank" rel="noreferrer">
-                View original project portfolio ↗
-              </a>
             </div>
             <div className="case__gallery-grid">
               {visuals.labels.map((label, i) => (
