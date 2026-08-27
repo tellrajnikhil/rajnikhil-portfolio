@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import "./Nav.css";
 
 const links = [
-  { href: "#work", label: "Work" },
-  { href: "#experience", label: "Experience" },
-  { href: "#technology", label: "Technology" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#work", label: "Work" },
+  { href: "/#experience", label: "Experience" },
+  { href: "/#technology", label: "Technology" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export default function Nav() {
@@ -43,7 +43,7 @@ export default function Nav() {
             ))}
           </nav>
 
-          <a href="#contact" className="btn btn-primary nav__cta">
+          <a href="/#contact" className="btn btn-primary nav__cta">
             Let&rsquo;s Connect
           </a>
 
@@ -66,7 +66,7 @@ export default function Nav() {
               {l.label}
             </a>
           ))}
-          <a href="#contact" className="btn btn-primary" onClick={() => setOpen(false)}>
+          <a href="/#contact" className="btn btn-primary" onClick={() => setOpen(false)}>
             Let&rsquo;s Connect
           </a>
         </nav>
