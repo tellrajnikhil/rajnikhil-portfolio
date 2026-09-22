@@ -39,19 +39,7 @@ jobs:
 
       - name: Configure SPA fallback
         run: |
-          cat > dist/404.html <<'HTML'
-          <!DOCTYPE html>
-          <html>
-            <head>
-              <meta charset="utf-8">
-              <script>
-                sessionStorage.redirect = location.href;
-                location.replace("/");
-              </script>
-            </head>
-            <body></body>
-          </html>
-          HTML
+          cp dist/index.html dist/404.html
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
