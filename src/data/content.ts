@@ -24,6 +24,15 @@ export type CaseStudy = {
   technology: string[];
   complexity: string[];
   outcome: string;
+  technologyDetails?: {
+    title: string;
+    text: string;
+    bullets: string[];
+  }[];
+  functionalDetails?: {
+    title: string;
+    text: string;
+  }[];
 };
 
 export const projects: ProjectSummary[] = [
@@ -273,35 +282,100 @@ export const caseStudies: Record<string, CaseStudy> = {
     domain: "Live Events · Creator Economy",
     role: "Technical Project Manager",
     challenge:
-      "Vituosica connects artists and audiences for live events and gig bookings. When I took over, delivery was struggling with resource management and client confidence had declined.",
+      "Vituosica is a live video streaming platform for artists and audiences, where artists can reach audiences, book gigs and audiences can get live music events.\n\nIt was the month of January 2022 when I took over the project. As it was the project's initial phase, the resources were not adequately managed and had poor output, resulting in the client's dissatisfaction. In any successful project, the project owner must have confidence in the executing team. Which at the initial level was lacking. I along with my tech lead decided to gain that confidence first and to gain that confidence we need to put results on the table. So we decided to have a sprint plan working session every week where we usually tried to break every story from the WBS into a small section and rearrange it according to the priority set by our client.\n\nIn the first sprint, we tried to build the admin panel where everything could be controlled. As this section was not that exposed to the public so we did not bother much about the interfaces but somehow we managed this section without UI/UX designer.\n\nIn the first two-three sprints, we started with onboarding the user profile that includes both artists and an audience. The only difference was that the application of the artist was to be approved by the admin panel first. After onboarding our platform we started working on the dashboard for both the users so these tasks were included in the fourth and fifth sprints. The work on the creation of any event started in sprint sixth. Those who create the event we call the ‘Event Owner’ so after events are created those come under the gigs section of our dashboard. To move forward with this event the artist or the event owner needs to initiate the proposals for respective events after a couple of negotiations if that event is finished then the event owner needs to pay through the stripe. This solicitation and negotiation part was executed by my dedicated team in the seventh and eighth sprints. In the USA there are various timezones that need to be handled to minimize the misconception about the timezone so here we added a parameter to input the user's timezone in the profile section and the event that appears to them will be in their local timezone.\n\nNow It was time for the event initiation solution. We used the Ant Media server for the live streaming activity that was part of our sprint tenth. After the initiation of the event, we had to manage the compliance factor so we included the activity of ban, suspend, and report feature in the eleventh sprint. The payment process was managed by the stripe connect flow which we integrated from our application and the CRM activity was managed by HubSpot which was done in the twelfth and thirteenth sprints. After all the successful and rigorous testing of our application, we are good to go for production on 1st July.",
     myRole: [
       "Took ownership of a project facing delivery and resourcing challenges.",
-      "Introduced structured weekly sprint planning to rebuild predictability.",
-      "Broke down scope into manageable work and aligned priorities directly with the client.",
-      "Coordinated teams across streaming, payments, CRM, messaging and platform workflows.",
+      "Introduced a weekly sprint plan working session to rebuild client confidence through visible results.",
+      "Broke down every story from the WBS into smaller sections and rearranged work according to client priorities.",
+      "Coordinated delivery across streaming, payments, CRM, messaging, compliance and platform workflows.",
     ],
     solution: [
-      "Established weekly sprint planning and transparent prioritisation.",
-      "Introduced stronger scope and change management practices.",
-      "Coordinated artist and audience onboarding, event workflows, proposals and payments.",
-      "Managed integrations with Ant Media, Stripe Connect, HubSpot and PubNub.",
-      "Addressed timezone, compliance and operational controls as part of delivery.",
+      "Built the admin panel first so the core platform could be controlled centrally.",
+      "Onboarded artists and audiences, including admin approval for artist applications.",
+      "Delivered dashboards, event creation, gigs, proposals, negotiation and payment workflows across successive sprints.",
+      "Added user timezone handling so events appear in the user's local timezone.",
+      "Integrated Ant Media for live streaming, Stripe Connect for payments and HubSpot for CRM activity.",
+      "Added ban, suspend and report capabilities as part of the compliance workflow.",
     ],
     technology: [
       "Ant Media / RTMP",
-      "Stripe Connect",
       "HubSpot CRM",
-      "PubNub",
+      "PubNub Messaging",
+      "Stripe Connect",
       "Firebase",
     ],
     complexity: [
       "Multi-timezone live-event workflows.",
-      "Interdependent third-party integrations.",
       "Streaming, payments, messaging and CRM in one platform.",
+      "Interdependent third-party integrations.",
       "Rebuilding client confidence during active delivery.",
     ],
+    technologyDetails: [
+      {
+        title: "Ant Media",
+        text:
+          "As this project was related to the streaming platform and literally this feature was the crux of the entire project. For the live streaming solution, we used Ant Media’s RTMP technology. It is a streaming engine software that provides adaptive, ultra-low latency streaming with ~0.5 seconds latency. Ant Media Server is highly scalable both horizontally and vertically. It can run on-premise or on the cloud. Using this technology we made platforms that are in-app streaming and others through third-party vendors like OBS.",
+        bullets: [
+          "An RTMP (Real-Time Messaging Protocol) link is a type of link used to stream live video and audio over the internet. Ant Media is a media server software that can be used to create and manage RTMP streams. To use an RTMP link with Ant Media, we had to set up an Ant Media server and configure it to accept RTMP connections. Once this was done, we used the RTMP link to stream live video and audio to our viewers.",
+          "WebRTC (Web Real-Time Communication) is mainly used for small-scale live streaming so we decided to go with RTMP",
+          "For the in-app streaming solution: There were primary issues which was selecting and making it default the peripheral devices in the browser we brought the solution then there were issues those selected peripheral devices were turned on throughout the application after accessing once. This was a major security issue that was addressed",
+          "Third-party streaming solution: In this, we generated an RTMP link, and the artist can go live using that link. The link that was generated did not have an expiry time nor ant media was able to help so in order to know the status of the live performance going through the link we used webhook to get back the status is the event was closed and then manage internally for the rest of the further process",
+          "Limiting the views: Next client wanted to restrict the viewers and wanted to know the active people so in order to activate we had various conversations from the Ant Media team to get the exact viewers on that performance",
+        ],
+      },
+      {
+        title: "Hubspot CRM",
+        text:
+          "In its most basic terms, HubSpot implementation is designed to get all of the information your team needs into one, centralized location that will house and track all communications between your team and your users here Artist / Audience moving forward. The HubSpot dashboard was maintained by our client and they created all the forms under that. They wanted data into the HubSpot dashboard from our application. There were two ways to use JSON and other was using APIs. First, we tried using JSON but the problem was when we used it in our application our frontend forms were changed to HubSpot’s form. This totally ruined our UI so next, we decided to integrate HubSpot APIs into our data set with the form id and the portal id.",
+        bullets: [],
+      },
+      {
+        title: "Pubnub messaging",
+        text:
+          "For any customer handling platform, the conversation is basic so for our application, we decided to use a third-party integration to ease our work but trust me this was not that easy. In this for any user, one channel id was generated where all the messages come under the same irrespective of sent or received, here we had to distinguish among these.",
+        bullets: [
+          "Reordering messaging issue: In general, PubNub does not guarantee that they are stored or sent in the exact same order in which they are published. Our application requires messages to be processed in the same order they were published, So we added a sequence field to the message payload and use it to order messages when they are received by the subscriber.",
+          "Web notifications issues: PubNub did not support push notifications on the web so we had to use google firebase for the browser notification",
+          "Online Presence: Under this, we were having difficulty in getting the user presence. PubNub's HereNow method returns the list of User UUID who are actively subscribed on the given channel but hereNow call response returned a blank list of UUIDs which means no user is actively subscribed on your given channel. So as soon as any user is offline we used a push notification for the users to check the active status.",
+        ],
+      },
+      {
+        title: "Stripe Connect",
+        text:
+          "For managing the transaction and escrow refund method we used a beautiful product of stripe which is called stripe connect. This we used to handle many functionalities",
+        bullets: [
+          "Subscription plan of the artist: With Subscriptions, customers make recurring payments for access to a product. Subscriptions require you to retain more information about your customers than one-time purchases do because you need to charge customers in the future. Under this, we first made four subscription plans in the stripe portal which later were mapped to the artist in which they are interested. For each subscription, the artist enjoys different privileges.",
+          "Refund - You can refund charges made to your account, either in whole or in part. Refunds use your available Stripe balance. Under this, we made different scenarios in our backend depending upon the cancellation date of the events.",
+          "Payout - For the payout, we made an escrow method for paying the artist directly after performing any events without any fail.",
+          "Radar - Stripe allows you to implement unique business logic so you can write fraud prevention rules specific to your business.",
+          "Coupons: A coupon contains information about a percent-off or amount-off discount you might want to apply to a customer",
+        ],
+      },
+    ],
+    functionalDetails: [
+      {
+        title: "Scope creep",
+        text:
+          "At the initial stage apart from the ongoing work, there were a few requirements from the client and they wanted to know about the estimation of each task.This client was very tech-savvy and went into detained things. In this case, we did deep research on their requirements but meanwhile, our sprint work got hampered so we decided to control these things and clearly mentioned defining the priority of the tasks and they understood the things and reduced their research work. Since then we used to add and remind the client of the change of the scope and traced the same.",
+      },
+      {
+        title: "Balanced skills of team members",
+        text:
+          "We always wanted to maintain a balanced workforce. A chain is as strong as its weakest link and in the case of project teams, performance highly depends on their individual skill levels. But your project is bound to fail if the team does not possess the necessary skills to tackle the problem at hand. Here it was the same in the starting where we literally struggled with the frontend developers and the client kept pointing out our mistakes which we already knew. So few bold decisions were taken and quite a few fronted developers were dropped from this project in search of better resources. I brought my trusted resource from my other project to save the ship. After initial turbulence, all the resources knew their work scope and performed well.",
+      },
+      {
+        title: "Communication channel",
+        text:
+          "You need to have timely and transparent methods of communication to ensure that all stakeholders are involved in the process. So we decided to have a sprint plan working session every week where we usually tried to break every story from the WBS into a small section and rearrange it according to the priority set by our client. Apart from that, we had a regular channel of communication through skype.",
+      },
+      {
+        title: "Unrealistic deadlines",
+        text:
+          "We never got into the trap of an unrealistic deadline. I knew the team's capability and negotiated the project timeline by prioritizing deadlines and project tasks",
+      },
+    ],
     outcome:
-      "Delivery moved from an unstructured, resourcing-constrained state to a predictable sprint rhythm with clearer scope control, prioritisation and technical dependency coordination. The platform was prepared for production release in July 2022.",
+      "After all the successful and rigorous testing of our application, we are good to go for production on 1st July. Delivery moved from an unstructured, resourcing-constrained state to a predictable sprint rhythm with clearer scope control, prioritisation and technical dependency coordination.",
   },
   "healthcare-workforce-platform": {
     slug: "healthcare-workforce-platform",

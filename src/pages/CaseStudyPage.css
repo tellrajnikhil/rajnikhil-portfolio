@@ -64,3 +64,11 @@
 .case__slider-dots button{width:8px;height:8px;border:0;border-radius:50%;padding:0;background:#999;cursor:pointer}
 .case__slider-dots button.is-active{width:22px;border-radius:10px;background:currentColor}
 @media(max-width:700px){.case__image-frame{min-height:220px}}
+
+.case__detail-section { display:grid; gap:1.5rem; }
+.case__detail-list { display:grid; gap:1.25rem; }
+.case__detail-card { border:1px solid var(--border); border-radius:18px; padding:clamp(1.35rem,2.5vw,2rem); background:#f5f3ee; }
+.case__detail-card h2 { margin:0; font-size:clamp(1.35rem,1.1rem + .6vw,1.8rem); letter-spacing:-.025em; }
+.case__detail-card p { margin-top:1rem; color:var(--ink-soft); line-height:1.75; }
+.case__detail-card ul { margin:1rem 0 0; padding-left:1.15rem; line-height:1.75; color:var(--ink); }
+.case__detail-card li+li { margin-top:.65rem; }

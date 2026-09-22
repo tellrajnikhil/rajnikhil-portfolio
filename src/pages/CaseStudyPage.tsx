@@ -140,6 +140,39 @@ export default function CaseStudyPage() {
             </div>
           </section>
 
+          {study.technologyDetails && (
+            <section className="case__detail-section">
+              <p className="case__kicker">Technology Stack</p>
+              <div className="case__detail-list">
+                {study.technologyDetails.map((item) => (
+                  <article className="case__detail-card" key={item.title}>
+                    <h2>{item.title}</h2>
+                    <p>{item.text}</p>
+                    {item.bullets.length > 0 && (
+                      <ul>
+                        {item.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
+                      </ul>
+                    )}
+                  </article>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {study.functionalDetails && (
+            <section className="case__detail-section">
+              <p className="case__kicker">Functional</p>
+              <div className="case__detail-list">
+                {study.functionalDetails.map((item) => (
+                  <article className="case__detail-card" key={item.title}>
+                    <h2>{item.title}</h2>
+                    <p>{item.text}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
+          )}
+
           <section className="case__outcome">
             <p className="case__kicker">Outcome</p>
             <h2>{study.outcome}</h2>
